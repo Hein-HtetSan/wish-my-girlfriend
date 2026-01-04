@@ -9,9 +9,10 @@ const playlist = [
 
 export default function MusicPlayer(): JSX.Element {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Start as playing
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Autoplay on mount and when song changes
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -23,6 +24,19 @@ export default function MusicPlayer(): JSX.Element {
       }
     }
   }, [currentIndex]);
+
+  // Try to autoplay on mount
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => setIsPlaying(false));
+      }
+    }
+  }, []);
 
   const togglePlay = () => {
     const audio = audioRef.current;
