@@ -84,7 +84,7 @@ export default function BirthdayWishes(): JSX.Element {
           </motion.div>
 
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-stone-800 mb-4">
-            Happy Birthday!
+            Happy Birthday, Babe Pisi!
           </h2>
 
           <p className="text-stone-500 text-lg md:text-xl font-light max-w-xl mx-auto mb-12">

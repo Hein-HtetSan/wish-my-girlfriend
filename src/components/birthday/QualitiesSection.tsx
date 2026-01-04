@@ -6,32 +6,44 @@ const qualities = [
   {
     icon: Sun,
     title: "Your Light",
-    description: "The way you illuminate every room you enter, bringing warmth to the coldest days."
+    description: `
+      The way you illuminate every room you enter, bringing warmth to the coldest days.
+    `
   },
   {
     icon: Heart,
-    title: "Your Heart",
-    description: "So full of love, compassion, and kindness. You make the world a better place."
+    title: `Your Heart`,
+    description: `
+      So full of love, compassion, and kindness. You make the world a better place.
+    `
   },
   {
     icon: Sparkles,
-    title: "Your Magic",
-    description: "That special something that makes you absolutely irreplaceable and uniquely you."
+    title: `Your Magic`,
+    description: `
+    That special something that makes you absolutely irreplaceable and uniquely you.
+    `
   },
   {
     icon: Music,
-    title: "Your Laugh",
-    description: "The most beautiful melody. It echoes in my heart long after you've smiled."
+    title: `Your Laugh`,
+    description: `
+      The most beautiful melody. It echoes in my heart long after you've smiled.
+    `
   },
   {
     icon: Moon,
-    title: "Your Peace",
-    description: "In your arms, I find the calmest silence. You are my home."
+    title: `Your Peace`,
+    description: `
+      In your arms, I find the calmest silence. You are my home.
+    `
   },
   {
     icon: Flower2,
-    title: "Your Growth",
-    description: "Watching you bloom has been the greatest privilege of my life."
+    title: `Your Growth`,
+    description: `
+      Watching you bloom has been the greatest privilege of my life.
+    `
   }
 ];
 

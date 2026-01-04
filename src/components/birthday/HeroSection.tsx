@@ -98,7 +98,7 @@ export default function HeroSection(): JSX.Element  {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2"
+        className="w-full flex justify-center absolute left-0 right-0 bottom-4 md:bottom-[-3rem] pointer-events-none"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

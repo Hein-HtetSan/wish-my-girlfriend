@@ -2,24 +2,49 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Star, Sparkles } from 'lucide-react';
 
+// Anniversary and birthday dates
+const anniversaryDate = new Date('2024-08-23');
+const birthdayDate = new Date('2004-01-04');
+const today = new Date();
+
+function getDaysSinceAnniversary() {
+  const diff = today.getTime() - anniversaryDate.getTime();
+  return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
+function getAge() {
+  let age = today.getFullYear() - birthdayDate.getFullYear();
+  const m = today.getMonth() - birthdayDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthdayDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 const timelineItems = [
   {
     icon: Star,
     title: "The Day We Met",
-    description: "Add your story here... The moment that changed everything. When our paths crossed and the universe aligned.",
-    date: "Add date"
+    description: `
+      We met for the first time at the Computer Training Center in October 2023. I was the quiet, introverted guy with a mask on my face, trying to blend into the background. She, with her brave and playful spirit, tried to catch a glimpse of my face and gently encouraged me to open up. That day, behind my mask, I found someone who truly saw me. It was the start of something special—two lives crossing paths in a classroom, not knowing how much we would come to mean to each other.
+    `,
+    date: "Dec 2023"
   },
   {
     icon: Heart,
     title: "When I Knew",
-    description: "Add your story here... The moment I realized you were the one. That look, that smile, that feeling.",
-    date: "Add date"
+    description: `
+      As we spent more time together at the training center in 2024, sharing meals, laughter, and dreams, I realized how much she meant to me. Her bravery, fun spirit, and lovely smile brightened every day. Somewhere between teaching, learning, and growing together, my heart found its home. We made promises, and every moment since has been a beautiful chapter in our story.
+    `,
+    date: "2024"
   },
   {
     icon: Sparkles,
     title: "Our Journey",
-    description: "Add your story here... Every adventure, every laugh, every quiet moment together has been a gift.",
-    date: "Add date"
+    description: `
+      Our journey together has been filled with laughter, learning, and love. From the first day we met at the computer training center, to sharing meals, late-night talks, and making promises for the future, every moment has been a new adventure. We’ve supported each other’s dreams, grown through challenges, and created memories that make every ordinary day extraordinary. With you, every step feels lighter, every joy is doubled, and every challenge is easier to face. Our story is just beginning, and I can’t wait to see where our journey takes us next.
+    `,
+    date: "23 Aug 2024"
   }
 ];
 
@@ -95,6 +120,7 @@ export default function StoryTimeline(): JSX.Element  {
             </motion.div>
           );
         })}
+
       </div>
     </section>
   );

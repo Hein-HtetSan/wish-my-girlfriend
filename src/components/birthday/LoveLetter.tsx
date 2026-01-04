@@ -75,23 +75,27 @@ export default function LoveLetter(): JSX.Element  {
 
             <div className="space-y-6 text-stone-600 font-light leading-loose">
               <p className="font-serif text-xl text-rose-400 italic">
-                My Dearest Love,
+                My Dearest,
               </p>
               
               <p>
-                Write your personal message here... Pour your heart out. Tell her what she means to you.
-                Express the feelings that words can barely capture.
+                From the moment our paths crossed, my world has been brighter, my heart lighter,
+                and my dreams so much sweeter. Every day with you is a new adventure - filled with
+                laughter, warmth, and the kind of happiness I never knew was possible.
               </p>
               
               <p>
-                On this special day, I want you to know just how much you mean to me.
-                You are not just my girlfriend; you are my best friend, my confidante, 
-                my greatest adventure, and the love of my life.
+                You are brave, fun, and your smile lights up even the cloudiest days. 
+                I cherish every memory we’ve made, from our first meeting at the 
+                computer center to every promise, every meal, every quiet moment 
+                we’ve shared. You inspire me to be my best self, and I am endlessly 
+                grateful for your love and support.
               </p>
               
               <p>
-                Add more paragraphs... Share your dreams together, your favorite memories,
-                or simply remind her of all the little things you adore about her.
+                Thank you for being my partner, my confidant, and my best friend. 
+                I look forward to a lifetime of making memories with you, 
+                growing together, and loving you more deeply with each passing day.
               </p>
               
               <p>

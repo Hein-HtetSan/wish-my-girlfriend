@@ -7,14 +7,20 @@ import QualitiesSection from '@/components/birthday/QualitiesSection';
 import LoveLetter from '@/components/birthday/LoveLetter';
 import BirthdayWishes from '@/components/birthday/BirthdayWishes';
 import MusicPlayer from '@/components/birthday/MusicPlayer';
+import PasscodePage from './Passcode';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const [loaded, setLoaded] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
   }, []);
+
+  if (!unlocked) {
+    return <PasscodePage onSuccess={() => setUnlocked(true)} />;
+  }
 
   return (
     <div className="bg-[#FFFBF7] min-h-screen overflow-x-hidden">
