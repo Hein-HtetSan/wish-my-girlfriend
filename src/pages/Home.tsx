@@ -18,10 +18,6 @@ export default function Home() {
     setLoaded(true);
   }, []);
 
-  if (!unlocked) {
-    return <PasscodePage onSuccess={() => setUnlocked(true)} />;
-  }
-
   return (
     <div className="bg-[#FFFBF7] min-h-screen overflow-x-hidden">
       {/* Progress indicator */}

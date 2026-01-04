@@ -51,7 +51,7 @@ export default function LoveLetter(): JSX.Element  {
           <Feather className="w-8 h-8 text-rose-300 mx-auto mb-4" />
           <span className="text-rose-400/60 tracking-[0.3em] text-xs uppercase">From My Heart</span>
           <h2 className="font-serif text-4xl md:text-5xl text-stone-800 mt-4">
-            A Letter For You
+            A Letter For You, Darling
           </h2>
         </motion.div>
 
@@ -108,7 +108,7 @@ export default function LoveLetter(): JSX.Element  {
                   Forever & Always Yours,
                 </p>
                 <p className="font-serif text-2xl text-rose-400 mt-2">
-                  Your Name ♥
+                  Hein Htet San ♥
                 </p>
               </div>
             </div>
