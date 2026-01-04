@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Music } from 'lucide-react';
 
 const playlist = [
-  "/Perfect-Ed-Sheeran.m4a",
-  "/All-of-Me.m4a",
+  // "/Perfect-Ed-Sheeran.m4a",
+  // "/All-of-Me.m4a",
   "/in-your-arm.mp3",
 ];
 
@@ -51,8 +51,17 @@ export default function MusicPlayer(): JSX.Element {
   };
 
   const handleEnded = () => {
-    setCurrentIndex((prev) => (prev + 1) % playlist.length);
-  };
+    if (playlist.length > 1) {
+      setCurrentIndex((prev) => (prev + 1) % playlist.length);
+    } else {
+      // If only one song, loop it
+      const audio = audioRef.current;
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+  }
 
   return (
     <>
@@ -61,6 +70,7 @@ export default function MusicPlayer(): JSX.Element {
         src={playlist[currentIndex]}
         autoPlay
         onEnded={handleEnded}
+        loop={playlist.length === 1}
       />
       <button
         onClick={togglePlay}

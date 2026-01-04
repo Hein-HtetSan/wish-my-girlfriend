@@ -68,6 +68,7 @@ export default function HeroSection(): JSX.Element  {
                     src="/images/hero.JPG"
                     alt="Her"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -97,7 +98,7 @@ export default function HeroSection(): JSX.Element  {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-12 md:bottom-[-20px] left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

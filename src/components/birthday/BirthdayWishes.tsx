@@ -11,64 +11,58 @@ const wishes = [
   "May happiness follow you everywhere",
 ];
 
-export default function BirthdayWishes(): JSX.Element {
-  const [showCelebration, setShowCelebration] = useState(false);
-  const [currentWish, setCurrentWish] = useState(0);
 
+export default function BirthdayWishes(): JSX.Element {
+  const [currentWish, setCurrentWish] = useState(0);
+  // Always cycle wishes every 3 seconds
   useEffect(() => {
-    if (showCelebration) {
-      const interval = setInterval(() => {
-        setCurrentWish((prev) => (prev + 1) % wishes.length);
-      }, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [showCelebration]);
+    const interval = setInterval(() => {
+      setCurrentWish((prev) => (prev + 1) % wishes.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      {/* Celebration particles */}
-      <AnimatePresence>
-        {showCelebration && (
-          <>
-            {[...Array(30)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ 
-                  opacity: 0, 
-                  y: 0, 
-                  x: Math.random() * window.innerWidth,
-                  scale: 0
-                }}
-                animate={{ 
-                  opacity: [0, 1, 1, 0],
-                  y: [0, -400 - Math.random() * 400],
-                  rotate: Math.random() * 720,
-                  scale: [0, 1, 1, 0.5]
-                }}
-                exit={{ opacity: 0 }}
-                transition={{ 
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2
-                }}
-                className="fixed pointer-events-none z-50"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  bottom: 0,
-                }}
-              >
-                {i % 3 === 0 ? (
-                  <Heart className="text-rose-400 fill-rose-400" style={{ width: 12 + Math.random() * 16 }} />
-                ) : i % 3 === 1 ? (
-                  <Stars className="text-amber-400" style={{ width: 12 + Math.random() * 16 }} />
-                ) : (
-                  <Sparkles className="text-rose-300" style={{ width: 12 + Math.random() * 16 }} />
-                )}
-              </motion.div>
-            ))}
-          </>
-        )}
-      </AnimatePresence>
+      {/* Celebration particles - always animate */}
+      <>
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ 
+              opacity: 0, 
+              y: 0, 
+              x: Math.random() * window.innerWidth,
+              scale: 0
+            }}
+            animate={{ 
+              opacity: [0, 1, 1, 0],
+              y: [0, -400 - Math.random() * 400],
+              rotate: Math.random() * 720,
+              scale: [0, 1, 1, 0.5]
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2
+            }}
+            className="fixed pointer-events-none z-50"
+            style={{
+              left: `${Math.random() * 100}%`,
+              bottom: 0,
+            }}
+          >
+            {i % 3 === 0 ? (
+              <Heart className="text-rose-400 fill-rose-400" style={{ width: 12 + Math.random() * 16 }} />
+            ) : i % 3 === 1 ? (
+              <Stars className="text-amber-400" style={{ width: 12 + Math.random() * 16 }} />
+            ) : (
+              <Sparkles className="text-rose-300" style={{ width: 12 + Math.random() * 16 }} />
+            )}
+          </motion.div>
+        ))}
+      </>
 
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-rose-100/50 via-transparent to-transparent" />
@@ -100,24 +94,23 @@ export default function BirthdayWishes(): JSX.Element {
         </motion.div>
 
         {/* Wish display */}
+        {/* Wish display - always show */}
         <AnimatePresence mode="wait">
-          {showCelebration && (
-            <motion.div
-              key={currentWish}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="mb-12"
-            >
-              <p className="font-serif text-2xl md:text-3xl text-rose-400 italic">
-                "{wishes[currentWish]}"
-              </p>
-            </motion.div>
-          )}
+          <motion.div
+            key={currentWish}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <p className="font-serif text-2xl md:text-3xl text-rose-400 italic">
+              "{wishes[currentWish]}"
+            </p>
+          </motion.div>
         </AnimatePresence>
 
-        {/* Celebrate button */}
+        {/* Next Wish button */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -125,31 +118,13 @@ export default function BirthdayWishes(): JSX.Element {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <Button
-            onClick={() => setShowCelebration(!showCelebration)}
-            className={`
-              group relative px-12 py-8 text-lg rounded-full font-light tracking-wider
-              transition-all duration-500 overflow-hidden
-              ${showCelebration 
-                ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-2xl shadow-rose-300' 
-                : 'bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white shadow-xl shadow-rose-200'
-              }
-            `}
+            onClick={() => setCurrentWish((prev) => (prev + 1) % wishes.length)}
+            className="group relative px-12 py-8 text-lg rounded-full font-light tracking-wider transition-all duration-500 overflow-hidden bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white shadow-xl shadow-rose-200"
           >
             <span className="relative z-10 flex items-center gap-3">
-              {showCelebration ? (
-                <>
-                  <PartyPopper className="w-5 h-5" />
-                  Celebrating!
-                  <PartyPopper className="w-5 h-5 scale-x-[-1]" />
-                </>
-              ) : (
-                <>
-                  <Gift className="w-5 h-5" />
-                  Click to Celebrate
-                </>
-              )}
+              <Gift className="w-5 h-5" />
+              Next Wish
             </span>
-            
             {/* Button glow effect */}
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
